@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-batch-cronjob-ingress
+spec:
+  rules:
+    - host: spring-batch-cronjob-dev
+      http:
+        paths:
+          - path: /spring-batch-cronjob
+            pathType: Prefix
+            backend:
+              service:
+                name: spring-batch-cronjob-dev
+                port:
+                  number: 3000
