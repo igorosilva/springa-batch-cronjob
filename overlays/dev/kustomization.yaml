@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ../../base
+  - cronjob.yaml
   - configmap.yaml
   - hpa.yaml
   - secret.yaml
