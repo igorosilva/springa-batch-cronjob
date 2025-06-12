@@ -4,7 +4,7 @@ metadata:
   name: spring-batch-cronjob
   namespace: default
 spec:
-  schedule: "*/1 * * * *" # A cada 5 minutos
+  schedule: "*/1 * * * *"
   jobTemplate:
     spec:
       template:
