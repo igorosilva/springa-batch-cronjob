@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-demo-backend
+  namespace: argocd
+spec:
+  destination:
+    namespace: k8s-demo-dev
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/igorosilva/k8s-demo
+    path: k8s-demo-backend/overlays/dev
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
